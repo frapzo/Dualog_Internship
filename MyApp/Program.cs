@@ -10,25 +10,25 @@ namespace VesselsNS
             // add 3 ferries
             for (int i = 0; i < 3; i++){
                 vessels.Add(new Ferry("Ferry" + i.ToString(), 
-                                        Random.Next(2003,2023).ToString(), 
+                                        Random.Next(2003,2023), 
                                         Random.Next(10,100), 
-                                        Random.Next(100,1000).ToString()));
+                                        Random.Next(100,1000)));
             }
 
             // add 3 tugboats
             for (int i = 0; i < 3; i++){
                 vessels.Add(new Tugboat("Tugboat" + i.ToString(), 
-                                        Random.Next(2003,2023).ToString(), 
+                                        Random.Next(2003,2023), 
                                         Random.Next(10,100), 
-                                        Random.Next(100,1000).ToString()));
+                                        Random.Next(100,1000)));
             }
 
             // add 3 submarines
             for (int i = 0; i < 3; i++){
                 vessels.Add(new Submarine("Submarine" + i.ToString(), 
-                                        Random.Next(2003,2023).ToString(), 
+                                        Random.Next(2003,2023), 
                                         Random.Next(10,100), 
-                                        Random.Next(100,1000).ToString()));
+                                        Random.Next(100,1000)));
             }
 
             // print vessel info of all vessels

@@ -2,9 +2,9 @@ namespace VesselsNS
 {
     // Vessel type Submarine
     public class Submarine : Vessel {
-        private string max_depth;
+        private int max_depth;
 
-        public Submarine(string Name, string Year, double MaxSpeed, string Max_depth, string Format = "KN") 
+        public Submarine(string Name, int Year, double MaxSpeed, int Max_depth, string Format = "KN") 
         : base(Name, Year, MaxSpeed, Format = "KN") {
             max_depth = Max_depth;
         }

@@ -2,9 +2,9 @@ namespace VesselsNS
 {
     // Vessel type Tugboat
     public class Tugboat : Vessel {
-        private string max_force;
+        private int max_force;
 
-        public Tugboat(string Name, string Year, double MaxSpeed, string Max_force, string Format = "KN") 
+        public Tugboat(string Name, int Year, double MaxSpeed, int Max_force, string Format = "KN") 
         : base(Name, Year, MaxSpeed, Format = "KN") {
             max_force = Max_force;
         }

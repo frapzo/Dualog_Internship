@@ -10,16 +10,16 @@ namespace VesselsNS{
             // generate random attributes
             var Random = new Random();
             string Name = "Ferry" + Random.Next(0,10).ToString();
-            string YearBuilt = Random.Next(2003,2023).ToString();
+            int YearBuilt = Random.Next(2003,2023);
             double MaxSpeed = Random.Next(10,100);
-            string Passengers = Random.Next(500,5000).ToString(); 
+            int Passengers = Random.Next(500,5000); 
 
             // construct ferry
             Ferry ferry = new Ferry(Name, YearBuilt, MaxSpeed, Passengers);
 
             // assert 
             Debug.Assert(ferry.GetName() == Name);
-            Debug.Assert(Double.Parse(ferry.GetMaxSpeed()) == MaxSpeed);
+            Debug.Assert(ferry.GetMaxSpeed() == MaxSpeed);
             Debug.Assert(ferry.GetYearBuilt() == YearBuilt);
         }
     }
@@ -31,14 +31,14 @@ namespace VesselsNS{
         [ExpectedException(typeof(OldShipException))]
         public void Test_Invalid_YearBuilt_of_Vessel()
         {
-            Ferry ferry = new Ferry("Ferry", "2002", 10, "1000");
+            Ferry ferry = new Ferry("Ferry", 2002, 10, 1000);
         }
 
         [TestMethod]
         [ExpectedException(typeof(Exception))]
         public void Test_Invalid_Vessel_Name()
         {
-            Ferry ferry = new Ferry("NULL", "2004", 10, "1000");
+            Ferry ferry = new Ferry("NULL", 2004, 10, 1000);
         }
     }
 }

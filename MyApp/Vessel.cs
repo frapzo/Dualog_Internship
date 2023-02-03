@@ -63,13 +63,13 @@ namespace VesselsNS
             return value.ToString(Format, provider);
         } 
 
-        public string ConvertUnit(string Format = "KN"){
+        public double ConvertUnit(string Format = "KN"){
             switch(Format)
             {
                 case "MS":
-                    return value.ToString();
+                    return value;
                 case "KN":
-                    return to_knots().ToString();
+                    return to_knots();
                 default:
                     throw new FormatException();
             }
@@ -80,10 +80,10 @@ namespace VesselsNS
     // base class for all vessels
     public class Vessel {
         private string name;
-        private string yearBuilt;
+        private int yearBuilt;
         private Speed maxSpeed;
 
-        public Vessel(string Name, string Year, double MaxSpeed, string Format = "KN"){
+        public Vessel(string Name, int Year, double MaxSpeed, string Format = "KN"){
             // Check if name is valid
             if (string.IsNullOrEmpty(Name) || Name == "NULL") {
                 throw new Exception("Name cannot be empty or null or NULL");
@@ -93,7 +93,7 @@ namespace VesselsNS
             }
 
             // Check if year is valid
-            if (Int32.Parse(Year) < 2003 || Int32.Parse(Year) > 2023) {
+            if (Year < 2003 || Year > 2023) {
                 throw new OldShipException();
             }
             else{
@@ -109,11 +109,11 @@ namespace VesselsNS
         }
 
         // public method to access yearBuilt
-        public string GetYearBuilt(){
+        public int GetYearBuilt(){
             return yearBuilt;
         }
 
-        public string GetMaxSpeed(string format = "KN"){
+        public double GetMaxSpeed(string format = "KN"){
             return maxSpeed.ConvertUnit(format);
         }
 
