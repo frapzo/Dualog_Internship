@@ -1,0 +1,13 @@
+The assignment was built with .NET 6.0.405 (LTS)
+
+Custom Exception classes have been gathered in Exceptions.cs
+
+All other classes are in their own file
+
+xUnit was used for unit testing
+
+MyApp has been set as dependency for UnitTests
+
+Navigate to MyApp/ and run command "dotnet run" to run assignment
+
+Navigate to UnitTests/ and run command "dotnet test" to run Unit Tests
