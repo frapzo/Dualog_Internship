@@ -8,8 +8,8 @@ namespace VesselsNS
         : base(Name, Year, MaxSpeed, Format = "KN") {
             passengers = Passengers;
 
-            // passengers cannot be negative number, default to 0
-            if (passengers < 0) passengers = 0;
+            // passengers cannot be negative number
+            if (passengers < 0) throw new Exception("Passenger number cannot be negative");
         }
 
         // return string decribing the vessel
