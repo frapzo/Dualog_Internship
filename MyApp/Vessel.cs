@@ -20,6 +20,15 @@ namespace VesselsNS
         }
     }
 
+    [Serializable]
+    public class NameException : Exception {
+        public override string Message {
+            get {
+                return "All Vessels must have a non-empty name, and it cannot be NULL";
+            }
+        }
+    }
+
     // Speed class that stores speed and can return in knots or meters per second
     public class Speed : IFormattable{
         private double value;
@@ -29,7 +38,7 @@ namespace VesselsNS
         public Speed(double Speed, string Format){
             // check if speed is valid
             if (Speed < 0){
-                throw new Exception("Speed cannot be negative");
+                throw new Exception("Max Speed of a vessel cannot be negative.");
             }
 
             // Check if unit is valid and convert as appropriate
@@ -86,7 +95,7 @@ namespace VesselsNS
         public Vessel(string Name, int Year, double MaxSpeed, string Format = "KN"){
             // Check if name is valid
             if (string.IsNullOrEmpty(Name) || Name == "NULL") {
-                throw new Exception("Name cannot be empty or null or NULL");
+                throw new NameException();
             }
             else{
                 name = Name;
